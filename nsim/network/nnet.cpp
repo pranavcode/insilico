@@ -21,6 +21,7 @@
 #include <algorithm>
 #include <cassert>
 #include <cmath>
+#include <cstdio>
 #include <fstream>
 #include <iostream>
 #include <string>
@@ -30,6 +31,8 @@
 #include <nsim/network/nnet.hpp>
 
 using namespace std;
+
+char key[128];
 
 state_type neuronal_network::get_variables() {
   return var_vals;
@@ -62,7 +65,8 @@ long neuronal_network::get_index(long id, string variable, int mode) {
 
 long neuronal_network::neuron_index(long id, string variable) {
   try {
-    return index_map["n"+to_string(id)+variable];
+    sprintf(key, "n%ld%s", id, variable.c_str());
+    return index_map[key];
   }
   catch(const char* msg) {
     cout<<endl<<"Runtime Failure\nSimulator Exception: nnet::neuron_index method supplied with incorrect arguments."
@@ -74,7 +78,8 @@ long neuronal_network::neuron_index(long id, string variable) {
 
 long double neuronal_network::neuron_value(long id, string variable) {
   try {
-    return value_map["n"+to_string(id)+variable];
+    sprintf(key, "n%ld%s", id, variable.c_str());
+    return value_map[key];
   }
   catch(const char* msg) {
     cout<<endl<<"Runtime Failure\nSimulator Exception: nnet::neuron_value method supplied with incorrect arguments."
@@ -86,7 +91,8 @@ long double neuronal_network::neuron_value(long id, string variable) {
 
 long neuronal_network::synapse_index(long id, string variable) {
   try {
-    return index_map["s"+to_string(id)+variable];
+    sprintf(key, "s%ld%s", id, variable.c_str());
+    return index_map[key];
   }
   catch(const char* msg) {
     cout<<endl<<"Runtime Failure\nSimulator Exception: nnet::synapse_index method supplied with incorrect arguments."
@@ -98,7 +104,8 @@ long neuronal_network::synapse_index(long id, string variable) {
 
 long double neuronal_network::synapse_value(long id, string variable) {
   try {
-    return value_map["s"+to_string(id)+variable];
+    sprintf(key, "s%ld%s", id, variable.c_str());
+    return value_map[key];
   }
   catch(const char* msg) {
     cout<<endl<<"Runtime Failure\nSimulator Exception: nnet::synapse_value method supplied with incorrect arguments."
