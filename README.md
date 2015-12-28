@@ -1,5 +1,7 @@
 insilico
 ========
+
+[![Join the chat at https://gitter.im/pranavcode/insilico](https://badges.gitter.im/pranavcode/insilico.svg)](https://gitter.im/pranavcode/insilico?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 ![GNU GPLv3 License](http://img.shields.io/badge/license-GPLv3-green.svg)
 [![insilico Trello](https://img.shields.io/badge/Trello-insilico-blue.svg)](https://trello.com/b/lkXzPGqD/insilico)
 
